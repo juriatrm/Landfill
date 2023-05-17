@@ -35,21 +35,21 @@
       var tilesource2_layer = L.tileLayer('https://github.com/juriatrm/Landfill/raw/main/MapNow/{z}/{x}/{y}.png', {
         minZoom: 8,
         maxZoom: 18,
-        tms: true,
+        tms: false,
         attribution: 'made by <a href="https://www.toramae.com">Juria Toramae</a> with <a href="https://leafletjs.com/">Leaflet</a>'
       }).addTo(map);
 
       var tilesource1_layer = L.tileLayer('https://github.com/juriatrm/Landfill/raw/main/MapBefore/{z}/{x}/{y}.png', {
         minZoom: 8,
         maxZoom: 18,
-        tms: true,
+        tms: false,
         attribution: 'made by <a href="https://www.toramae.com">Juria Toramae</a> with <a href="https://leafletjs.com/">Leaflet</a>'
       }).addTo(map);
 
       var tilesource3_layer = L.tileLayer('https://github.com/juriatrm/Landfill/raw/main/MapFuture/{z}/{x}/{y}.png', {
         minZoom: 8,
         maxZoom: 18,
-        tms: true,
+        tms: false,
         attribution: 'made by <a href="https://www.toramae.com">Juria Toramae</a> with <a href="https://leafletjs.com/">Leaflet</a>'
       }).addTo(map);
 
