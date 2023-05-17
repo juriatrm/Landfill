@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Semakau Landfill: Past, Present, and Possible Futures</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+   integrity="sha384-o/2yZuJZWGJ4s/adjxVW71R+EO/LyCwdQfP5UWSgX/w87iiTXuvDZaejd3TsN7mf"
+   crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+   integrity="sha384-okbbMvvx/qfQkmiQKfd5VifbKZ/W8p1qIsWvE1ROPUfHWsDcC8/BnHohF7vPg2T6"
+   crossorigin=""></script>
+   
+  <style type="text/css">
+    body {
+       margin: 0;
+       padding: 0;
+    }
+    html, body, #map{
+       width: 100%;
+       height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+      var map = L.map('map', { attributionControl: false } ).setView([1.2016446807148302, 103.77224549385028], 15.0);
+      L.control.attribution( { prefix: false } ).addTo( map );
+      
+      var osm_layer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        minZoom: 8,
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var tilesource2_layer = L.tileLayer('file:////Users/toramae/Desktop/MapNow/{z}/{x}/{y}.png', {
+        minZoom: 8,
+        maxZoom: 18,
+        tms: false,
+        attribution: 'made by <a href="https://www.toramae.com">Juria Toramae</a> with <a href="https://leafletjs.com/">Leaflet</a>'
+      }).addTo(map);
+
+      var tilesource1_layer = L.tileLayer('file:////Users/toramae/Desktop/MapBefore/{z}/{x}/{y}.png', {
+        minZoom: 8,
+        maxZoom: 18,
+        tms: false,
+        attribution: 'made by <a href="https://www.toramae.com">Juria Toramae</a> with <a href="https://leafletjs.com/">Leaflet</a>'
+      }).addTo(map);
+
+      var tilesource3_layer = L.tileLayer('file:////Users/toramae/Desktop/MapFuture/{z}/{x}/{y}.png', {
+        minZoom: 8,
+        maxZoom: 18,
+        tms: false,
+        attribution: 'made by <a href="https://www.toramae.com">Juria Toramae</a> with <a href="https://leafletjs.com/">Leaflet</a>'
+      }).addTo(map);
+
+      var baseMaps = {
+        "Past: Semakau & Sakeng Prior Reclamation":tilesource1_layer, 
+        "Present: Semakau Landfill":tilesource2_layer,
+        "Possible Future: Semakau Landfill Expansion":tilesource3_layer
+      };
+
+      var layerControl = L.control.layers(baseMaps,0,{collapsed: false}).addTo(map);
+
+  </script>
+</body>
+</html>
